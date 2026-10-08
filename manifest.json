@@ -1,0 +1,12 @@
+{
+  "name": "Meu Ano Escolar",
+  "short_name": "Meu Ano",
+  "description": "Seu painel pessoal de notas e desempenho escolar.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#14223b",
+  "icons": [{"src":"assets/logo.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

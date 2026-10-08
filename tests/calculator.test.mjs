@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {parseGrade,calculateAverage,calculateWeightedAverage,calculateAnnualPoints,calculateRequiredGrade,calculateStatus,termsCompleted} from '../js/calculator.js';
+for(const n of [0,5,6,7,8,9,10])assert.equal(parseGrade(n),n);
+assert.equal(parseGrade('8,5'),8.5);assert.equal(parseGrade('8.5'),8.5);assert.equal(parseGrade('-1'),null);assert.equal(parseGrade('11'),null);assert.equal(parseGrade('texto'),null);
+assert.equal(calculateAverage([8,7,9]),8);assert.equal(calculateWeightedAverage([{grade:8,weight:2},{grade:10,weight:1}]),26/3);
+const subject=(grades,target=24)=>({annualTarget:target,termCount:4,calcMode:'manual',terms:grades.map(grade=>({grade}))});
+let s=subject([5.5,6,5,null]);assert.equal(calculateAnnualPoints(s),16.5);let r=calculateRequiredGrade(s);assert.equal(r.needed,7.5);assert.equal(r.remaining,1);assert.equal(r.achievable,true);
+assert.equal(calculateStatus(subject([10,10,10,10])),'Aprovado');assert.equal(calculateStatus(subject([4,4,null,null])),'Risco');assert.equal(calculateStatus(subject([9,9,null,null],40)),'Impossível');
+assert.equal(calculateRequiredGrade(subject([null,null,null,null])).remaining,4);assert.equal(termsCompleted(subject([8,null,null,null])),1);assert.equal(calculateRequiredGrade(subject([10,null,null,null],24)).needed,14/3);
+assert.equal(calculateRequiredGrade({...subject([8]),termCount:1}).remaining,0);assert.equal(calculateRequiredGrade(subject([8,8,null,null])).remaining,2);
+assert.equal(calculateRequiredGrade(subject([8,8,8,8])).achieved,true);
+console.log('calculator tests: OK');

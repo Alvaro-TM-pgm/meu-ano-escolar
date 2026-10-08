@@ -1,0 +1,1 @@
+export {createSubject,updateSubject,deleteSubject,getSubjects,createAssessment,updateAssessment,deleteAssessment,saveSettings,loadSettings,saveUserProfile,getUserProfile,clearSchoolData,deleteMyProfileData} from './firebase.js';
