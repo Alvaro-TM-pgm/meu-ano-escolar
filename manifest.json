@@ -1,7 +1,7 @@
 {
   "name": "Meu Ano Escolar",
   "short_name": "Meu Ano",
-  "description": "Seu painel pessoal de notas e desempenho escolar.",
+  "description": "Organize disciplinas e acompanhe notas sem criar conta.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
